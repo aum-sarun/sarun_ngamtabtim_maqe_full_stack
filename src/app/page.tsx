@@ -1,5 +1,5 @@
 import CSS_Styling from "@/components/CSS-Styling";
-// import Bot from "@/components/MAQE-Bot";
+import Bot from "@/components/MAQE-Bot";
 
 export default function Home() {
   return (
@@ -14,9 +14,9 @@ export default function Home() {
         <h1 className="text-xl font-semibold">Quest 1: CSS Styling</h1>
         <CSS_Styling />
       </div>
-      <div className="w-full block h-fit">
+      <div className="w-full flex flex-col h-fit gap-5">
         <h1 className="text-xl font-semibold">2. MAQE Homework Challenge - MAQE Bot</h1>
-        {/* <Bot /> */}
+        <Bot />
       </div>
     </div>
 
