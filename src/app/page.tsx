@@ -20,7 +20,7 @@ export default function Home() {
         <Bot />
       </div>
       <div className="w-full flex flex-col h-fit gap-5">
-        <h1 className="text-xl font-semibold">Challenge 3: Template and Styling</h1>
+        <h1 className="text-xl font-semibold">Challenge 3: Template and Styling <span className="text-sm font-light text-red-950">(Responsive)</span></h1>
         <TemplateStyling />
       </div>
     </div>

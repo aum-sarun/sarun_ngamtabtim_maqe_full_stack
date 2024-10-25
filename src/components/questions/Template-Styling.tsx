@@ -78,15 +78,15 @@ export default async function TemplateStyling() {
         <p className='py-3'>{`Your current timezone is: ${timeZone}`}</p>
         {posts.map((post) => (
             <div className="flex flex-col w-full rounded-sm shadow-md odd:bg-white even:bg-[#ccecff]" key={post.id}>
-                <div className="flex flex-row gap-2 border-b-2 border-gray-300 py-2 px-5 items-center">
+                <div className="flex flex-row gap-2 border-b-2 border-gray-300 py-2 px-5 items-center overflow-x-scroll">
                     <Image src={post.authorAvatarUrl} alt={post.authorName} width={28} height={28}
                         className="flex-none rounded-full bg-slate-50" />
                     <p className="text-[#f8491f] font-semibold">{post.authorName}</p>
                     <p className="text-[#657384] text-sm">posted on <DateFormatter timeZone={timeZone} isoDateString={post.created_at} /></p>
                 </div>
-                <div className="flex flex-row items-start gap-5 py-2 px-5">
+                <div className="flex flex-col xl:flex-row items-start gap-5 py-2 px-5">
                     <Image src={post.postImageUrl} alt={post.postTitle} width={270} height={200}
-                        className="flex-none bg-slate-50" />
+                        className="flex-none bg-slate-50 self-center" />
                     <div className='flex flex-col py-2 gap-3'>
                         <h3 className="text-lg font-bold">{post.postTitle}</h3>
                         <p className="">{post.postBody}</p>
