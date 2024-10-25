@@ -17,6 +17,13 @@ export default function Home() {
       </div>
       <div className="w-full flex flex-col h-fit gap-5">
         <h1 className="text-xl font-semibold">Challenge 2: MAQE Bot</h1>
+        <ul className="list-disc ml-5">
+          <li>Bot walks in 2-dimensional (X, Y)</li>
+          <li>R: Turn 90 degree to the right of Bot (clockwise)</li>
+          <li>L: Turn 90 degree to the left of Bot (counterclockwise)</li>
+          <li>WN: (W)Walk straight for N point(s) where N can be any positive integers. <span className="underline">For example,</span> W1 means walking straight for 1 point.</li>
+        </ul>
+
         <Bot />
       </div>
       <div className="w-full flex flex-col h-fit gap-5">
