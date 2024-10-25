@@ -1,3 +1,6 @@
+'use client'
+
+import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import DateFormatter from '../DateFormatter'
 
@@ -28,7 +31,9 @@ interface Post {
     authorName: string;
 }
 
-export default async function TemplateStyling() {
+export default function TemplateStyling() {
+    const [posts, setPosts] = useState<Post[]>([])
+
     const getData = async (jsonPath: string) => {
         const data = await fetch(`https://maqe.github.io/json${jsonPath}`);
         const result = await data.json();
@@ -51,10 +56,10 @@ export default async function TemplateStyling() {
         }
     };
 
-    const buildPost = async (): Promise<Post[]> => {
+    const buildPost = useCallback(async () => {
         const authors: Author[] = await getData('/authors.json');
         const rawPosts = await getData('/posts.json');
-        const posts = rawPosts.map((post: RawPost): Post => {
+        const buildPosts = rawPosts.map((post: RawPost): Post => {
             const author = findAuthorByPostId(authors, post.author_id)
             return {
                 id: post.id,
@@ -66,10 +71,13 @@ export default async function TemplateStyling() {
                 authorName: author.name,
             };
         })
-        return posts
-    }
+        setPosts(buildPosts)
+    }, []);
 
-    const posts = await buildPost();
+    useEffect(() => {
+        buildPost();
+    }, [buildPost]);
+
     // Get the user's current time zone
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
