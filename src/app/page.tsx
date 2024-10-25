@@ -1,5 +1,6 @@
-import CSS_Styling from "@/components/CSS-Styling";
-import Bot from "@/components/MAQE-Bot";
+import CSS_Styling from "@/components/questions/CSS-Styling";
+import Bot from "@/components/questions/MAQE-Bot";
+// import TemplateStyling from "@/components/questions/Template-Styling";
 
 export default function Home() {
   return (
@@ -7,16 +8,20 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-items-center gap-5">
         <h1 className="text-4xl font-black">MAQE Homework Challenge</h1>
-        <h1 className="text-4xl font-black underline">Fullstack Engineer</h1>
+        <h1 className="text-4xl font-black underline">Fullstack Engineer (3 Challenges)</h1>
         <h1 className="text-2xl font-semibold underline">Sarun Ngamtabtim</h1>
       </div>
       <div className="w-full block h-fit">
-        <h1 className="text-xl font-semibold">Quest 1: CSS Styling</h1>
+        <h1 className="text-xl font-semibold">Challenge 1: CSS Styling</h1>
         <CSS_Styling />
       </div>
       <div className="w-full flex flex-col h-fit gap-5">
-        <h1 className="text-xl font-semibold">2. MAQE Homework Challenge - MAQE Bot</h1>
+        <h1 className="text-xl font-semibold">Challenge 2: MAQE Bot</h1>
         <Bot />
+      </div>
+      <div className="w-full flex flex-col h-fit gap-5">
+        <h1 className="text-xl font-semibold">Challenge 3: Template and Styling</h1>
+        {/* <TemplateStyling /> */}
       </div>
     </div>
 
