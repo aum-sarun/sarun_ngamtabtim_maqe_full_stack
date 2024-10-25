@@ -1,6 +1,6 @@
 import CSS_Styling from "@/components/questions/CSS-Styling";
 import Bot from "@/components/questions/MAQE-Bot";
-// import TemplateStyling from "@/components/questions/Template-Styling";
+import TemplateStyling from "@/components/questions/Template-Styling";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <div className="w-full flex flex-col h-fit gap-5">
         <h1 className="text-xl font-semibold">Challenge 3: Template and Styling</h1>
-        {/* <TemplateStyling /> */}
+        <TemplateStyling />
       </div>
     </div>
 
