@@ -1,6 +1,6 @@
 export default function CSS_Styling() {
     return (
-        <div className="relative p-6 overflow-scroll h-fit">
+        <div className="relative p-6 overflow-auto h-fit">
             <div className="w-[500px] sm:w-[550px] md:w-[650px] lg:w-[750px] xl:w-[950px] 2xl:w-[1100px] h-4 rounded-xl bg-[#3a4454] drop-shadow-customLeft50 shadow-black sticky top-1/2"></div>
             <div className="flex flex-nowrap ml-[5%] sm:ml-[3%] lg:ml-[2%] gap-1">
                 <div className="z-10 bg-gradient-to-b from-[#6bc4e8] to-[#9bd4d2] rounded-full flex items-center justify-center drop-shadow-customLeft50 flex-none

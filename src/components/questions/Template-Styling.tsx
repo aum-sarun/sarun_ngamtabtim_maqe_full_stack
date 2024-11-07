@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import DateFormatter from '../DateFormatter'
 
@@ -33,6 +33,7 @@ interface Post {
 
 export default function TemplateStyling() {
     const [posts, setPosts] = useState<Post[]>([])
+    const [search, setSearch] = useState<string>("")
 
     const getData = async (jsonPath: string) => {
         const data = await fetch(`https://maqe.github.io/json${jsonPath}`);
@@ -74,6 +75,16 @@ export default function TemplateStyling() {
         setPosts(buildPosts)
     }, []);
 
+    const visiblePosts: Post[] = useMemo(() => {
+        return posts.filter(p => {
+            const t = p.postTitle.toUpperCase()
+            const au = p.authorName.toUpperCase()
+
+            return t.includes(search.toUpperCase()) || au.includes(search.toUpperCase())
+        })
+    }, [search, posts]);
+
+
     useEffect(() => {
         buildPost();
     }, [buildPost]);
@@ -83,8 +94,9 @@ export default function TemplateStyling() {
 
     return (<div className="flex flex-col gap-3 px-20 py-10 bg-[#eeeeee]">
         <h1 className='text-3xl font-bold'>MAQE Forum</h1>
+        <input type="text" name="" onChange={(e) => { setSearch(e.target.value) }} className='border' />
         <p className='py-3'>{`Your current timezone is: ${timeZone}`}</p>
-        {posts.map((post) => (
+        {visiblePosts.map((post) => (
             <div className="flex flex-col w-full rounded-sm shadow-md odd:bg-white even:bg-[#ccecff]" key={post.id}>
                 <div className="flex flex-row gap-2 border-b-2 border-gray-300 py-2 px-5 items-center overflow-hidden">
                     <Image src={post.authorAvatarUrl} alt={post.authorName} width={28} height={28}
